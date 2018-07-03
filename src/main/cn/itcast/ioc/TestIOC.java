@@ -16,7 +16,7 @@ public class TestIOC {
         ApplicationContext context =
                 new ClassPathXmlApplicationContext("bean1.xml");
         // classpath：类路径，src目录下的文件最终要编译到类路径下
-        // 2.根据配置文件的id得到user对象
+        // 2.根据配置文件的id得到user对象11
         User user = (User) context.getBean("user");
         System.out.println(user);
         user.add();
