@@ -5,6 +5,6 @@ package cn.itcast.ioc;
  */
 public class User {
     public void add() {
-        System.out.println("add......www...........");
+        System.out.println("add...hhh..........");
     }
 }
