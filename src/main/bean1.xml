@@ -19,6 +19,28 @@
     <!-- 4.使用有参数的构造注入属性 -->
     <bean id="book" class="cn.itcast.property.Book">
         <!-- 使用标签，name：为属性的名字；value：为属性的值 -->
-        <constructor-arg name="bookname" value="beautifulMan_美美侠"></constructor-arg>
+        <constructor-arg name="bookname" value="这是value~"></constructor-arg>
+    </bean>
+
+    <!-- 5.使用set方法进行注入属性 -->
+    <bean id="person" class="cn.itcast.property.Person">
+        <!--
+            使用property标签注入属性值
+            name：类属性名称
+            value属性：往属性中注入的值
+        -->
+        <property name="username" value="李阿昀"></property>
+    </bean>
+
+    <!-- 6.注入对象的属性 -->
+    <!-- 6.1先创建dao对象 -->
+    <bean id="userDao" class="cn.itcast.dao.UserDao"></bean>
+    <!-- 6.2再创建service对象    -->
+    <bean id="userService" class="cn.itcast.service.UserService">
+        <!-- 在servcie里面注入userDao属性
+            name属性：service对象里面的userDao属性的名称
+            注入dao对象，不能写value属性，要写ref属性：dao配置的bean的id值
+        -->
+        <property name="userDao" ref="userDao"></property>
     </bean>
 </beans>

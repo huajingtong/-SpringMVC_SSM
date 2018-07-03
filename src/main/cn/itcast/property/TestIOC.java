@@ -17,5 +17,8 @@ public class TestIOC {
 
         Book book = (Book) context.getBean("book");
         book.testBook();
+
+        Person person = (Person)context.getBean("person");
+        person.testperson();
     }
 }
