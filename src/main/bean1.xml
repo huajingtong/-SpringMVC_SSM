@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- 1.配置user对象的创建 -->
+    <bean id="user" class="cn.itcast.ioc.User"></bean>
+
+    <!-- 2.使用静态工厂创建对象 -->
+    <bean id="bean1" class="cn.itcast.bean.Bean1Factory" factory-method="getBean1"></bean>
+
+    <!-- 3.使用实例工厂创建对象 -->
+    <!-- 3.1先创建工厂对象 -->
+    <bean id="bean2Factory" class="cn.itcast.bean.Bean2Factory"></bean>
+    <!-- 3.2再使用工厂对象创建bean2对象 -->
+    <bean id="bean2" factory-bean="bean2Factory" factory-method="getBean2"></bean>
+
+    <!-- 4.使用有参数的构造注入属性 -->
+    <bean id="book" class="cn.itcast.property.Book">
+        <!-- 使用标签，name：为属性的名字；value：为属性的值 -->
+        <constructor-arg name="bookname" value="beautifulMan_美美侠"></constructor-arg>
+    </bean>
+</beans>
